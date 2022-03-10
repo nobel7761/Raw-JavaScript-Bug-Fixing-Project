@@ -12,7 +12,7 @@ const getReportedPosts = () => {
 };
 
 const isLiked = (id) => {
-  return likedPostsId?.length && !!likedPostsId.includes(id);
+  return likedPostsId.length && !!likedPostsId.includes(id);
 };
 
 const addToLiked = (id) => {
@@ -36,6 +36,7 @@ const switchTab = (id) => {
     document.getElementById("liked").style.display = "none";
     document.getElementById("reported").style.display = "none";
   } else if (id === "liked") {
+    document.getElementById("liked").textContent = '';
     document.getElementById("liked").style.display = "block";
     document.getElementById("posts").style.display = "none";
     document.getElementById("reported").style.display = "none";
@@ -145,6 +146,7 @@ const displayLikedPosts = () => {
   const likedPosts = getLikedPosts();
   likedPosts.forEach((post) => {
     const div = createPost(post);
+    console.log(div);
     document.getElementById("liked").appendChild(div);
   });
 };
